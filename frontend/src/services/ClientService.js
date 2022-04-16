@@ -10,6 +10,10 @@ class ClientService {
     createClient(client){
         return axios.post(DATABASE_URL, client)
     }
+
+    getClientById(clientId){
+        return axios.get(DATABASE_URL + '/' + clientId);
+    }
 }
 
 export default new ClientService();

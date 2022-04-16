@@ -1,0 +1,5 @@
+package com.xbarts.xbcritic.controllers.exceptions;
+
+public class StandardError {
+
+}

@@ -72,6 +72,9 @@ const ListingClients = () => {
                                                     <td>{client.company}</td>
                                                     <td>{client.email}</td>
                                                     <td>{client.phone}</td>
+                                                    <td>
+                                                        <Link className="btn btn-info" to={`/edit-cliente/${client.id}`}>Editar</Link>
+                                                    </td>
                                                 </tr>
                                         )
                                     }

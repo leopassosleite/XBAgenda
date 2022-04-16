@@ -1,0 +1,21 @@
+package com.xbarts.xbcritic.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.xbarts.xbcritic.dto.ClientDTO;
+import com.xbarts.xbcritic.entities.Client;
+import com.xbarts.xbcritic.repositories.ClientRepository;
+
+@Service
+public class ClientService {
+	
+	@Autowired
+	private ClientRepository clientRepository;
+	
+	public ClientDTO findById(Long id) {
+		Client result = clientRepository.findById(id).get();
+		ClientDTO dto = new ClientDTO(result);
+		return dto;
+	}
+}

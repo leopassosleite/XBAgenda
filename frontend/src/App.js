@@ -12,6 +12,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/clientes" element={<LinstingClients />} />
         <Route path="/add-cliente" element={<AddClient />} />
+        <Route path="/edit-cliente/:id" element={<AddClient />} />
       </Routes>
     </>
   );

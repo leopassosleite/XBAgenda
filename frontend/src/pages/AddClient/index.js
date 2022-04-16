@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import ClientService from '../../services/ClientService'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 
 const AddClient = () => {
 
@@ -10,6 +10,7 @@ const AddClient = () => {
     const [phone, setPhone] = useState('')
     const [category, setCategory] = useState('')
     const navigate = useNavigate();
+    const { id } = useParams();
 
     const saveClient = (e) => {
         e.preventDefault();
@@ -17,11 +18,33 @@ const AddClient = () => {
         const client = { name, company, email, phone, category }
 
         ClientService.createClient(client).then((response) => {
+
             console.log(response.data)
+
+            navigate('/clientes')
+
         }).catch(error => {
             console.log(error)
-            navigate('/cliente')
         })
+    }
+
+    useEffect(() => {
+        ClientService.getClientById(id).then((response) => {
+            setName(response.data.name)
+            setComapany(response.data.company)
+            setEmail(response.data.email)
+            setPhone(response.data.phone)
+        }).catch(error => {
+            console.log(error)
+        })
+    }, [id])
+
+   const title = () => {
+        if(id) {
+            return <h2 className="text-center">Atualizar Cadastro</h2>
+        }else{
+            return <h2 className="text-center">Add Cliente</h2>
+        }
     }
 
     return (
@@ -30,7 +53,9 @@ const AddClient = () => {
             <div className="container">
                 <div className="row">
                     <div className="card col-6 offset-md-3 offset-md-3">
-                        <h2 className="text-center">Add cliente</h2>
+                        {
+                            title()
+                        }
                         <div className="card-body">
                             <form>
                                 <div className="form-group mb-2">
@@ -89,7 +114,7 @@ const AddClient = () => {
                                     >
                                     </input>
                                 </div>
-                                <Link to="/clientes"><button className="btn btn-success" onClick={(e) => saveClient(e)}>Salvar</button></Link>
+                                <button className="btn btn-success" onClick={(e) => saveClient(e)}>Salvar</button>
                                 <Link to="/clientes"><button className="btn btn-danger">Cancelar</button></Link>
                             </form>
                         </div>
