@@ -89,7 +89,7 @@ const AddClient = () => {
                                     >
                                     </input>
                                 </div>
-                                <button className="btn btn-success" onClick={(e) => saveClient(e)}>Salvar</button>
+                                <Link to="/clientes"><button className="btn btn-success" onClick={(e) => saveClient(e)}>Salvar</button></Link>
                                 <Link to="/clientes"><button className="btn btn-danger">Cancelar</button></Link>
                             </form>
                         </div>
