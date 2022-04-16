@@ -3,8 +3,10 @@ package com.xbarts.xbcritic.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -55,5 +57,13 @@ public class ClientController {
 		clientRepository.save(updateClient);
 		
 		return ResponseEntity.ok(updateClient);
+	}
+	
+	@DeleteMapping("/{id}")
+	public ResponseEntity<HttpStatus> deleteClient(@PathVariable Long id) {
+		Client client = clientRepository.findById(id)
+				.orElseThrow(()-> new ResourceNotFoundException("Não existe cliente com o id:" + id));
+		clientRepository.delete(client);
+		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 	}
 }

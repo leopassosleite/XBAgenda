@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom";
+import ClientService from "../../services/ClientService";
 
 const ListingClients = () => {
     const [data, setData] = useState([]);
@@ -8,23 +9,33 @@ const ListingClients = () => {
     let componentMounted = true;
 
     useEffect(() => {
-        const getClients = async () => {
-            setLoading(true);
-            const response = await fetch("https://xbagenda.herokuapp.com/clients");
-            if (componentMounted) {
-                setData(await response.clone().json());
-                setFilter(await response.json());
-                setLoading(false);
-                console.log(filter)
-            }
 
-            return () => {
-                componentMounted = false;
-            }
+        getAllClients()
+    }, [])
+
+    const getAllClients = async () => {
+        setLoading(true);
+        const response = await fetch("http://localhost:8080/clients");
+        if (componentMounted) {
+            setData(await response.clone().json());
+            setFilter(await response.json());
+            setLoading(false);
+            console.log(filter)
         }
 
-        getClients()
-    }, [])
+        return () => {
+            componentMounted = false;
+        }
+    }
+
+
+    const deleteClient = (clientId) => {
+        ClientService.deleteClient(clientId).then((response) => {
+            getAllClients();
+        }).catch(error => {
+            console.log(error);
+        });
+    }
 
     const Loading = () => {
         return (
@@ -60,6 +71,7 @@ const ListingClients = () => {
                                         <th>Email</th>
                                         <th>Telefone</th>
                                         <th>Prazo</th>
+                                        <th>Actions</th>
                                     </tr>
                                 </thead>
 
@@ -72,8 +84,11 @@ const ListingClients = () => {
                                                     <td>{client.company}</td>
                                                     <td>{client.email}</td>
                                                     <td>{client.phone}</td>
+                                                    <td>{client.moment}</td>
                                                     <td>
                                                         <Link className="btn btn-info" to={`/edit-cliente/${client.id}`}>Editar</Link>
+                                                        <button className="btn btn-danger" onClick={() => deleteClient(client.id)}
+                                                            style={{ marginLeft: "10px" }}>Deletar</button>
                                                     </td>
                                                 </tr>
                                         )

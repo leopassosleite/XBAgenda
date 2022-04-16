@@ -1,5 +1,6 @@
 package com.xbarts.xbcritic.entities;
 
+import java.time.Instant;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -32,19 +33,21 @@ public class Client {
 	@Column(name = "category")
 	private String category;
 	
+	@Column(name = "moment")
+	private Instant moment;
+	
 	public Client() {
 	}
 	
-	public Client(Long id, String name, String company, String email, String phone, String category) {
+	public Client(Long id, String name, String company, String email, String phone, String category, Instant moment) {
 		this.id = id;
 		this.name = name;
 		this.company = company;
 		this.email = email;
 		this.phone = phone;
 		this.category = category;
+		this.moment = moment;
 	}
-
-
 
 	public Long getId() {
 		return id;
@@ -92,6 +95,14 @@ public class Client {
 
 	public void setCategory(String category) {
 		this.category = category;
+	}
+
+	public Instant getMoment() {
+		return moment;
+	}
+
+	public void setMoment(Instant moment) {
+		this.moment = moment;
 	}
 
 	@Override

@@ -15,7 +15,6 @@ INDEX VERSION 1.131+C:\workspace\ws-xbsoftwares\xbagenda\.metadata\.plugins\org.
 1256055114.index
 3921554553.index
 468155665.index
-1965174767.index
 3063385474.index
 3500526148.index
 3707158917.index

@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import { Routes, Route } from "react-router-dom";
 import LinstingClients from "./pages/ListingClients";
 import AddClient from "./pages/AddClient";
+import Footer from "./components/Footer";
 
 function App() {
   return (

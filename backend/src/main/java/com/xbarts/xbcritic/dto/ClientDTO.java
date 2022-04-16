@@ -1,5 +1,7 @@
 package com.xbarts.xbcritic.dto;
 
+import java.time.Instant;
+
 import com.xbarts.xbcritic.entities.Client;
 
 public class ClientDTO {
@@ -9,17 +11,19 @@ public class ClientDTO {
 	private String email;
 	private String phone;
 	private String category;
+	private Instant moment;
 	
 	public ClientDTO() {
 	}
 
-	public ClientDTO(Long id, String name, String company, String email, String phone, String category) {
+	public ClientDTO(Long id, String name, String company, String email, String phone, String category, Instant moment) {
 		this.id = id;
 		this.name = name;
 		this.company = company;
 		this.email = email;
 		this.phone = phone;
 		this.category = category;
+		this.moment = moment;
 	}
 	
 	public ClientDTO(Client client) {
@@ -77,5 +81,13 @@ public class ClientDTO {
 
 	public void setCategory(String category) {
 		this.category = category;
+	}
+
+	public Instant getMoment() {
+		return moment;
+	}
+
+	public void setMoment(Instant moment) {
+		this.moment = moment;
 	}
 }

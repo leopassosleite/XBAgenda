@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const DATABASE_URL = 'https://xbagenda.herokuapp.com/clients';
+const DATABASE_URL = 'http://localhost:8080/clients';
 
 class ClientService {
     getAllClients() {
@@ -13,6 +13,14 @@ class ClientService {
 
     getClientById(clientId){
         return axios.get(DATABASE_URL + '/' + clientId);
+    }
+
+    updateClient(clientId, client) {
+        return axios.put(DATABASE_URL + '/' + clientId, client);
+    }
+
+    deleteClient(clientId) {
+        return axios.delete(DATABASE_URL + '/' + clientId);
     }
 }
 
