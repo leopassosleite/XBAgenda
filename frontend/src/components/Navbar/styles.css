@@ -1,0 +1,10 @@
+.xbagend a {
+    text-decoration: none;
+    color: white;
+    margin: 0 0 0 10px;
+    font-size: 24px;
+}
+
+.xbagend a:hover{
+    color: white;
+}
