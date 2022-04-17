@@ -53,22 +53,22 @@ const AddClient = () => {
 
     const title = () => {
         if (id) {
-            return <h2 className="text-center" style={{ fontSize: "30px", color: "#ffff" }}>Atualizar Cadastro</h2>
+            return <h2 className="text-center" style={{ marginTop: "10px", fontSize: "30px", color: "#ffff" }}>Atualizar Cadastro</h2>
         } else {
-            return <h2 className="text-center" style={{ fontSize: "30px", color: "#ffff" }}>Add Cliente</h2>
+            return <h2 className="text-center" style={{ marginTop: "10px", fontSize: "30px", color: "#ffff" }}>Add Cliente</h2>
         }
     }
 
     return (
         <div>
             <br /><br />
-            <div className="container" style={{ marginTop: "10px"}}>
+            <div className="container" style={{marginLeft: "10px", width: "440px"}}>
                 <div className="row">
                     <div className="card">
                         {
                             title()
                         }
-                        <div className="card-body" style={{width: "450px"}}>
+                        <div className="card-body" style={{width: "420px"}}>
                             <form>
                                 <div className="form-group mb-3">
                                     <label className="form-label">Nome: </label>
