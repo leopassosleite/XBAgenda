@@ -51,16 +51,16 @@ const AddClient = () => {
 
     const title = () => {
         if (id) {
-            return <h2 className="text-center">Atualizar Cadastro</h2>
+            return <h2 className="text-center" style={{fontSize: "30px"}}>Atualizar Cadastro</h2>
         } else {
-            return <h2 className="text-center">Add Cliente</h2>
+            return <h2 className="text-center" style={{fontSize: "30px"}}>Add Cliente</h2>
         }
     }
 
     return (
         <div>
             <br /><br />
-            <div className="container">
+            <div className="container-fluid">
                 <div className="row">
                     <div className="card col-6 offset-md-3 offset-md-3">
                         {

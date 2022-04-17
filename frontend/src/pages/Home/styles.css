@@ -1,5 +1,18 @@
-.ju-bonde img {
-    height: 400px;
-    width: 300px;
-    margin: 0 20px 0 0;
+.xbagenda-home h1{
+    margin: 15px 0 0 10px;
+    color: rgb(130, 21, 231);
+}
+
+.card{
+    margin: 50px 0 0 10px;
+    width: 460px;
+}
+
+.card h1 {
+    font-size: 30px;
+    color: rgb(0, 0, 0);
+}
+
+.card h2 {
+    font-size: 12px;
 }
