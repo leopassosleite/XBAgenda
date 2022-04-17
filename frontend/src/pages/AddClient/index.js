@@ -51,16 +51,16 @@ const AddClient = () => {
 
     const title = () => {
         if (id) {
-            return <h2 className="text-center" style={{fontSize: "30px"}}>Atualizar Cadastro</h2>
+            return <h2 className="text-center" style={{ fontSize: "30px" }}>Atualizar Cadastro</h2>
         } else {
-            return <h2 className="text-center" style={{fontSize: "30px"}}>Add Cliente</h2>
+            return <h2 className="text-center" style={{ fontSize: "30px" }}>Add Cliente</h2>
         }
     }
 
     return (
         <div>
             <br /><br />
-            <div className="container" style={{marginTop: "-40px"}}>
+            <div className="container" style={{ marginTop: "-40px", marginRight: "-200px" }}>
                 <div className="row">
                     <div className="card col-6 offset-md-3 offset-md-3">
                         {
@@ -113,7 +113,7 @@ const AddClient = () => {
                                     >
                                     </input>
                                     <div className="form-group mb-2"></div>
-                                    <label className="form-label">Prazo: </label>
+                                    <label className="form-label">Data: </label>
                                     <input
                                         type="text"
                                         placeholder="Informe a data"
@@ -124,16 +124,17 @@ const AddClient = () => {
                                     >
                                     </input>
                                     <div className="form-group mb-2"></div>
-                                    <label className="form-label">Categoria: </label>
-                                    <input
-                                        type="text"
-                                        placeholder="Informe a categoria"
-                                        name="category"
-                                        className="form-control"
-                                        value={category}
-                                        onChange={(e) => setCategory(e.target.value)}
-                                    >
-                                    </input>
+                                    <label className="form-label">Prazo: </label>
+                                    <select>
+                                        <option
+                                            type="text"
+                                            placeholder="Informe o prazo"
+                                            name="category"
+                                            className="form-control"
+                                            value={category}
+                                            onChange={(e) => setCategory(e.target.value)}>
+                                            Selecione o prazo</option>
+                                    </select>
                                 </div>
                                 <button className="btn btn-success" onClick={(e) => saveOrUpdateClient(e)}>Salvar</button>
                                 <Link to="/clientes"><button className="btn btn-danger"
