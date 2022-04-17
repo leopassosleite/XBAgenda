@@ -86,9 +86,9 @@ const ListingClients = () => {
                                                     <td>{client.phone}</td>
                                                     <td>{client.moment}</td>
                                                     <td>
-                                                        <Link className="btn btn-info" to={`/edit-cliente/${client.id}`}>Editar</Link>
+                                                        <Link className="btn btn-info" to={`/edit-cliente/${client.id}`} style={{marginLeft:"15px"}}>Editar</Link>
                                                         <button className="btn btn-danger" onClick={() => deleteClient(client.id)}
-                                                            style={{ marginLeft: "10px" }}>Deletar</button>
+                                                            style={{ marginLeft: "10px", marginTop: "10px" }}>Deletar</button>
                                                     </td>
                                                 </tr>
                                         )

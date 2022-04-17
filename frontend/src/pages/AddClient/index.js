@@ -60,7 +60,7 @@ const AddClient = () => {
     return (
         <div>
             <br /><br />
-            <div className="container-fluid">
+            <div className="container" style={{marginTop: "-40px"}}>
                 <div className="row">
                     <div className="card col-6 offset-md-3 offset-md-3">
                         {
