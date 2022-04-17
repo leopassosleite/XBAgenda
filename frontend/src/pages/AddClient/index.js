@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import ClientService from '../../services/ClientService'
 import { Link, useNavigate, useParams } from 'react-router-dom'
+import Select from '../../form/Select'
 
 const AddClient = () => {
 
@@ -60,7 +61,7 @@ const AddClient = () => {
     return (
         <div>
             <br /><br />
-            <div className="container" style={{ marginTop: "-40px", marginRight: "-200px" }}>
+            <div className="container" style={{ marginTop: "10px"}}>
                 <div className="row">
                     <div className="card col-6 offset-md-3 offset-md-3">
                         {
@@ -125,16 +126,7 @@ const AddClient = () => {
                                     </input>
                                     <div className="form-group mb-2"></div>
                                     <label className="form-label">Prazo: </label>
-                                    <select>
-                                        <option
-                                            type="text"
-                                            placeholder="Informe o prazo"
-                                            name="category"
-                                            className="form-control"
-                                            value={category}
-                                            onChange={(e) => setCategory(e.target.value)}>
-                                            Selecione o prazo</option>
-                                    </select>
+                                    <Select name="category" />
                                 </div>
                                 <button className="btn btn-success" onClick={(e) => saveOrUpdateClient(e)}>Salvar</button>
                                 <Link to="/clientes"><button className="btn btn-danger"
