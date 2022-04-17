@@ -17,7 +17,7 @@ const AddClient = () => {
     const saveOrUpdateClient = (e) => {
         e.preventDefault();
 
-        const client = { name, company, email, phone, moment }
+        const client = { name, company, email, phone, moment, category }
 
         if (id) {
             ClientService.updateClient(id, client).then((response) => {
@@ -45,6 +45,7 @@ const AddClient = () => {
             setEmail(response.data.email)
             setPhone(response.data.phone)
             setMoment(response.data.moment)
+            setCategory(response.data.category)
         }).catch(error => {
             console.log(error)
         })

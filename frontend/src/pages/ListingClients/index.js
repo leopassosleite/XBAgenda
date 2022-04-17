@@ -15,7 +15,7 @@ const ListingClients = () => {
 
     const getAllClients = async () => {
         setLoading(true);
-        const response = await fetch("https://xb-agenda.herokuapp.com/clients");
+        const response = await fetch("http://localhost:8080/clients");
         if (componentMounted) {
             setData(await response.clone().json());
             setFilter(await response.json());

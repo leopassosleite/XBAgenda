@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const DATABASE_URL = 'https://xb-agenda.herokuapp.com/clients';
+const DATABASE_URL = 'http://localhost:8080/clients';
 
 class ClientService {
     getAllClients() {
