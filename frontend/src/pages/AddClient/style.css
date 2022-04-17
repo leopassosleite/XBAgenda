@@ -1,0 +1,13 @@
+.container select {
+    padding: 0.2em;
+    border-radius: 0;
+    border: none;
+}
+
+.card {
+   background-color: rgb(32, 32, 32);
+}
+
+.container label {
+    color: rgb(245, 245, 245);
+}

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import ClientService from '../../services/ClientService'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import Select from '../../form/Select'
+import './style.css'
 
 const AddClient = () => {
 
@@ -52,9 +53,9 @@ const AddClient = () => {
 
     const title = () => {
         if (id) {
-            return <h2 className="text-center" style={{ fontSize: "30px" }}>Atualizar Cadastro</h2>
+            return <h2 className="text-center" style={{ fontSize: "30px", color: "#ffff" }}>Atualizar Cadastro</h2>
         } else {
-            return <h2 className="text-center" style={{ fontSize: "30px" }}>Add Cliente</h2>
+            return <h2 className="text-center" style={{ fontSize: "30px", color: "#ffff" }}>Add Cliente</h2>
         }
     }
 
@@ -63,13 +64,13 @@ const AddClient = () => {
             <br /><br />
             <div className="container" style={{ marginTop: "10px"}}>
                 <div className="row">
-                    <div className="card col-6 offset-md-3 offset-md-3">
+                    <div className="card">
                         {
                             title()
                         }
-                        <div className="card-body">
+                        <div className="card-body" style={{width: "450px"}}>
                             <form>
-                                <div className="form-group mb-2">
+                                <div className="form-group mb-3">
                                     <label className="form-label">Nome: </label>
                                     <input
                                         type="text"
