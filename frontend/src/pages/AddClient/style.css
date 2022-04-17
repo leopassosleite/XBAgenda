@@ -4,10 +4,6 @@
     border: none;
 }
 
-.card {
-   background-color: rgb(32, 32, 32);
-}
-
 .container label {
-    color: rgb(245, 245, 245);
+    color: rgb(0, 0, 0);
 }

@@ -1,11 +1,16 @@
 import React from 'react'
 
-function Select({ text, name, options, handleOnChange, value }) {
+function Select({ name, options, handleOnChange, value }) {
     return (
         <div>
-            <label htmlFor={name}>{text}</label>
+            <label htmlFor={name}></label>
             <select name={name} id={name}>
                 <option>Selecione o prazo</option>
+                {options.map((option) => (
+                    <option value={option.id} key={option.id}>
+                        {option.name}
+                    </option>
+                ))}
             </select>
         </div>
     )

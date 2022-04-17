@@ -1,14 +1,21 @@
 package com.xbarts.xbcritic.entities;
 
 import java.time.Instant;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "tb_client")
@@ -35,6 +42,10 @@ public class Client {
 	
 	@Column(name = "moment")
 	private Instant moment;
+	
+	@ManyToMany
+	@JoinTable(name = "tb_client_category", joinColumns = @JoinColumn(name = "client_id"), inverseJoinColumns = @JoinColumn(name = "category_id"))
+	private Set<Category> categories = new HashSet<>();
 	
 	public Client() {
 	}
@@ -103,6 +114,14 @@ public class Client {
 
 	public void setMoment(Instant moment) {
 		this.moment = moment;
+	}
+
+	public Set<Category> getCategories() {
+		return categories;
+	}
+
+	public void setCategories(Set<Category> categories) {
+		this.categories = categories;
 	}
 
 	@Override

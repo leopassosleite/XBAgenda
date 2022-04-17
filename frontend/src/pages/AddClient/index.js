@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import ClientService from '../../services/ClientService'
 import { Link, useNavigate, useParams } from 'react-router-dom'
-import Select from '../../form/Select'
 import './style.css'
 
 const AddClient = () => {
@@ -18,7 +17,7 @@ const AddClient = () => {
     const saveOrUpdateClient = (e) => {
         e.preventDefault();
 
-        const client = { name, company, email, phone, moment, category }
+        const client = { name, company, email, phone, moment }
 
         if (id) {
             ClientService.updateClient(id, client).then((response) => {
@@ -53,22 +52,22 @@ const AddClient = () => {
 
     const title = () => {
         if (id) {
-            return <h2 className="text-center" style={{ marginTop: "10px", fontSize: "30px", color: "#ffff" }}>Atualizar Cadastro</h2>
+            return <h2 className="text-center" style={{ marginTop: "10px", fontSize: "30px", color: "#000" }}>Atualizar Cadastro</h2>
         } else {
-            return <h2 className="text-center" style={{ marginTop: "10px", fontSize: "30px", color: "#ffff" }}>Add Cliente</h2>
+            return <h2 className="text-center" style={{ marginTop: "10px", fontSize: "30px", color: "#000" }}>Add Cliente</h2>
         }
     }
 
     return (
         <div>
             <br /><br />
-            <div className="container" style={{marginLeft: "10px", width: "440px"}}>
+            <div className="container" style={{ marginLeft: "10px", width: "440px" }}>
                 <div className="row">
                     <div className="card">
                         {
                             title()
                         }
-                        <div className="card-body" style={{width: "420px"}}>
+                        <div className="card-body" style={{ width: "420px" }}>
                             <form>
                                 <div className="form-group mb-3">
                                     <label className="form-label">Nome: </label>
@@ -127,7 +126,14 @@ const AddClient = () => {
                                     </input>
                                     <div className="form-group mb-2"></div>
                                     <label className="form-label">Prazo: </label>
-                                    <Select name="category" />
+                                    <input
+                                        type="text"
+                                        placeholder="Informe o prazo"
+                                        name="category"
+                                        className="form-control"
+                                        value={category}
+                                        onChange={(e) => setCategory(e.target.value)}
+                                    ></input>
                                 </div>
                                 <button className="btn btn-success" onClick={(e) => saveOrUpdateClient(e)}>Salvar</button>
                                 <Link to="/clientes"><button className="btn btn-danger"
