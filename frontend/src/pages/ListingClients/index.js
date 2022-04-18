@@ -15,7 +15,7 @@ const ListingClients = () => {
 
     const getAllClients = async () => {
         setLoading(true);
-        const response = await fetch("https://xb-agenda.herokuapp.com/clients");
+        const response = await fetch("http://localhost:8080/clients");
         if (componentMounted) {
             setData(await response.clone().json());
             setFilter(await response.json());
@@ -27,7 +27,6 @@ const ListingClients = () => {
             componentMounted = false;
         }
     }
-
 
     const deleteClient = (clientId) => {
         ClientService.deleteClient(clientId).then((response) => {
@@ -53,8 +52,8 @@ const ListingClients = () => {
         return (
             <>
                 <div className="buttons py-2 px-1">
-                    <Link to="/add-cliente"><button className="btn btn-outline-success me-2"> ADD</button></Link>
-                    <button className="btn btn-outline-dark me-2 ms-5" onClick={() => setFilter(data)}>Todos</button>
+                    <Link to="/add-cliente"><button className="btn btn-outline-success me-2"> ADD</button></Link><br></br><br></br>
+                    <button className="btn btn-outline-dark me-2" onClick={() => setFilter(data)}>Todos</button>
                     <button className="btn btn-outline-dark me-2" onClick={() => filterClient("30 dias")}>30 dias</button>
                     <button className="btn btn-outline-dark me-2" onClick={() => filterClient("60 dias")}>60 dias</button>
                     <button className="btn btn-outline-dark me-2" onClick={() => filterClient("90 dias")}>90 dias</button>

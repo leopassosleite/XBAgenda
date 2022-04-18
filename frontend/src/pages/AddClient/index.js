@@ -3,7 +3,7 @@ import ClientService from '../../services/ClientService'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import './style.css'
 
-const AddClient = () => {
+const AddClient = ({ handleSubmit, projectData}) => {
 
     const [name, setName] = useState('')
     const [company, setComapany] = useState('')
@@ -124,17 +124,7 @@ const AddClient = () => {
                                         value={moment}
                                         onChange={(e) => setMoment(e.target.value)}
                                     >
-                                    </input>
-                                    <div className="form-group mb-2"></div>
-                                    <label className="form-label">Prazo: </label>
-                                    <input
-                                        type="text"
-                                        placeholder="Informe o prazo"
-                                        name="category"
-                                        className="form-control"
-                                        value={category}
-                                        onChange={(e) => setCategory(e.target.value)}
-                                    ></input>
+                                    </input> 
                                 </div>
                                 <button className="btn btn-success" onClick={(e) => saveOrUpdateClient(e)}>Salvar</button>
                                 <Link to="/clientes"><button className="btn btn-danger"
