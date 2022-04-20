@@ -3,7 +3,7 @@ import ClientService from '../../services/ClientService'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import './style.css'
 
-const AddClient = ({ handleSubmit, projectData}) => {
+const AddClient= () => {
 
     const [name, setName] = useState('')
     const [company, setComapany] = useState('')
@@ -124,7 +124,7 @@ const AddClient = ({ handleSubmit, projectData}) => {
                                         value={moment}
                                         onChange={(e) => setMoment(e.target.value)}
                                     >
-                                    </input> 
+                                    </input>
                                 </div>
                                 <button className="btn btn-success" onClick={(e) => saveOrUpdateClient(e)}>Salvar</button>
                                 <Link to="/clientes"><button className="btn btn-danger"

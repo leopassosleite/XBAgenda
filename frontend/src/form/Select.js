@@ -1,14 +1,16 @@
 import React from 'react'
+import styles from './Select.module.css'
 
-function Select({ text, name, options, onChange, value }) {
+function Select({ text, name, options, handleOnChange, value }) {
     return (
-        <div>
+        <div className={styles.form_control}>
             <label htmlFor={name}>{text}</label>
             <select
                 name={name}
                 id={name}
-                onChang={onChange}>
-                <option>Selecione o prazo</option>
+                onChange={handleOnChange}
+                value={value || ''}>
+                <option>Selecione um prazo</option>
                 {options.map((option) => (
                     <option value={option.id} key={option.id}>
                         {option.name}
@@ -18,5 +20,4 @@ function Select({ text, name, options, onChange, value }) {
         </div>
     )
 }
-
-export default Select
+export default Select;

@@ -1,26 +1,22 @@
 import Home from "./pages/Home";
-import Navbar from "./asrcTESTE/components/Navbar";
+import Navbar from "./components/Navbar";
 import { Routes, Route } from "react-router-dom";
-import LinstingClients from "./pages/ListingClients";
 import AddClient from "./pages/AddClient";
-import Footer from "./asrcTESTE/layout/Footer";
 import Calendar from "./pages/Calendar";
-import NewProject from "./pages/newProject";
-import HomeFake from "./asrcTESTE/pages/Home";
-import Container from "./asrcTESTE/layout/Container";
-import Projects from "./asrcTESTE/pages/Projects";
+import ListingClients from "./pages/ListingClients";
+import LoginPage from "./pages/Login";
 
 function App() {
   return (
     <>
       <Navbar />
-      <Container customClass="min-height">
-        <Routes>
-          <Route path="/" element={<HomeFake />} />
-          <Route path="/projects" element={<Projects />} />
-        </Routes>
-      </Container>
-      <Footer />
+      <Routes>
+      <Route path="/" element={<LoginPage />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/clientes" element={<ListingClients />} />
+        <Route path="/add-cliente" element={<AddClient />} />
+        <Route path="/edit-cliente/:id" element={<AddClient />} />
+      </Routes>
     </>
   );
 }
